@@ -1,0 +1,27 @@
+{
+  "name": "native-uii",
+  "version": "1.0.0",
+  "description": "nativejs ui components",
+  "main": "dist/nativeUI.min.js",
+  "author": "wone",
+  "license": "MIT",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.3.2",
+    "webpack": "^5.41.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "files": [
+    "src",
+    "dist/*.js"
+  ],
+  "scripts": {
+    "build": "webpack --mode=production",
+    "demo": "yarn build && webpack serve --mode=development --open --config ./example/webpack.config.js",
+    "pu":"yarn build && yarn publish",
+    "sync:github": "git add -A && git commit && git push -u origin master"
+  },
+  "dependencies": {
+    "ifuncs": "^1.0.2"
+  }
+}
