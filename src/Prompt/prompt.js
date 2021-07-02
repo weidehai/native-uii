@@ -90,10 +90,11 @@ const Prompt = (function () {
    * @return {Prompt} Prompt对象
    */
   function getInstance() {
-    if (Prompt.instance) {
-      return Prompt.instance;
+    Prompt.instance = new Prompt()
+    getInstance = function(){
+      return Prompt.instance
     }
-    return (Prompt.instance = new Prompt());
+    return getInstance();
   }
   return getInstance;
 })();

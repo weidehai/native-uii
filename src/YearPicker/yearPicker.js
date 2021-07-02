@@ -180,9 +180,12 @@ const YearPicker = (function () {
     });
   };
 
-  function getInstance(startYear = 1974, endYear = 2021) {
-    if (YearPicker.instance) return YearPicker.instance;
-    return (YearPicker.instance = new YearPicker(startYear, endYear));
+  function getInstance(startYear = 1947, endYear = 2021) {
+    YearPicker.instance = new YearPicker(startYear, endYear)
+    getInstance = function(){
+      return YearPicker.instance
+    }
+    return getInstance();
   }
   return getInstance;
 })();
