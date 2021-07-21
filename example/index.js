@@ -1,7 +1,7 @@
 import {YearPicker,Prompt} from '../dist/nativeUI.min'
 
 let prompt = Prompt();
-let yearPicker = YearPicker();
+let yearPicker = new YearPicker();
 
 
 document.querySelector('[Prompt]').addEventListener('click',showPrompt)
