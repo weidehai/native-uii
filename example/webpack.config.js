@@ -6,6 +6,9 @@ module.exports = {
     contentBase: "./example",
     port: "4567",
   },
+  externals: {
+    ifuncs: "ifuncs",
+  },
   plugins:[
     new HtmlWebpackPlugin({
       template: "./example/index.html",
