@@ -3,8 +3,9 @@ import { appendHTML } from "ifuncs";
 export const Confirm = (function () {
   let successFn;
   let failFn;
+  let closeFn;
   function init(config) {
-    (successFn = []), (failFn = []);
+    (successFn = []), (failFn = []),(closeFn = []);
     let tp = html(config);
     appendHTML(document.body, tp);
     setCallback(config);
@@ -19,6 +20,7 @@ export const Confirm = (function () {
           fn();
         });
       }
+      onClose()
     };
     document.querySelector("div[comfirm] .box button[sure]").onclick = function () {
       document.querySelector("div[comfirm]").style.display = "none";
@@ -28,12 +30,23 @@ export const Confirm = (function () {
           fn();
         });
       }
+      onClose()
     };
   }
   function setCallback(config) {
     config.success && successFn.push(config.success);
     config.fail && failFn.push(config.fail);
+    config.close && closeFn.push(config.close);
   }
+
+  function onClose() {
+    if (closeFn.length > 0) {
+      closeFn.forEach((fn) => {
+        fn();
+      });
+    }
+  }
+
   return {
     show(config) {
       init(config);

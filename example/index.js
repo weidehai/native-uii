@@ -13,7 +13,6 @@ function showPrompt() {
 function showYearPicker() {
   yearPicker.show();
 }
-console.log(window.innerWidth);
 function showConfirm() {
   Confirm.show({
     title: "提示",
@@ -23,6 +22,9 @@ function showConfirm() {
     success: () => {
       console.log("success");
     },
+    close:()=>{
+      console.log('close');
+    }
   });
 }
 
