@@ -6,6 +6,7 @@
   "author": "wone",
   "license": "MIT",
   "devDependencies": {
+    "cypress": "^8.4.1",
     "ejs-loader": "^0.5.0",
     "html-webpack-plugin": "^5.3.2",
     "webpack": "^5.41.0",
