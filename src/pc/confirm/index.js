@@ -7,8 +7,6 @@ export const Confirm = (function () {
     (successFn = []), (failFn = []);
     let tp = html(config);
     appendHTML(document.body, tp);
-    document.querySelector("div[comfirm]").style.height = window.innerHeight+'px';
-    document.querySelector("div[comfirm]").style.width = window.innerWidth+'px';
     setCallback(config);
     addEvent();
   }
