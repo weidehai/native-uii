@@ -21,7 +21,7 @@
     "dev": "webpack --watch",
     "demo": "yarn build && webpack serve --mode=development --open --config ./example/webpack.config.js",
     "pu": "yarn build && yarn publish",
-    "sync:github": "git add -A && git commit && git push -u origin master"
+    "sync:github": "yarn build && git add -A && git commit && git push -u origin master"
   },
   "dependencies": {
     "ifuncs": "^1.0.2"
