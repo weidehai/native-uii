@@ -9,8 +9,6 @@
   </div>
   <style>
     div[comfirm]{
-      height: 100vh;
-      width: 100vw;
       display: flex;
       position: absolute;
       left: 0;
