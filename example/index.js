@@ -1,4 +1,4 @@
-import { YearPicker, Prompt, Confirm, PromptPC } from "../dist/nativeUI.min";
+import { YearPicker, Prompt, Confirm, PromptPC,Loading,Progress } from "../dist/nativeUI.min";
 
 let prompt = Prompt();
 let yearPicker = new YearPicker();
@@ -7,6 +7,9 @@ document.querySelector("[Prompt]").addEventListener("click", showPrompt);
 document.querySelector("[YearPicker]").addEventListener("click", showYearPicker);
 document.querySelector("[Confirm]").addEventListener("click", showConfirm);
 document.querySelector("[PromptPc]").addEventListener("click", showPromptPC);
+document.querySelector("[Loading]").addEventListener("click", showLoading);
+document.querySelector("[Progress]").addEventListener("click", showProgress);
+
 function showPrompt() {
   prompt.show("prompt组件测试");
 }
@@ -32,4 +35,20 @@ function showPromptPC() {
   PromptPC.show({
     content: "是否需要删除本条记录",
   });
+}
+
+
+function showLoading(){
+  Loading.show()
+}
+
+
+function showProgress(){
+  let value = 0
+  Progress.show()
+  let update = setInterval(()=>{
+    value+=1
+    Progress.update(`${value}%`)
+    if(value===100) clearInterval(update)
+  },500)
 }
