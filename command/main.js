@@ -1,19 +1,12 @@
-var inquirer = require("inquirer");
-inquirer
-  .prompt([
-    {
-      name: "device",
-      type: "list",
-      message: `selec device`,
-      choices: [
-        { name: "pc", value: "pc" },
-        { name: "mobile", value: "mobile" },
-      ],
-    },
-  ])
-  .then((answers) => {
-    console.log(answers);
-    // Use user feedback for... whatever!!
+const interact = require("./interact");
+const { addExport, addModuleFile } = require("./add");
+
+interact
+  .selectDevice()
+  .then(async (anwsers) => {
+    let moduleName = await interact.inputModuleName();
+    addExport(`./${anwsers.device}/${moduleName.moduleName}/${moduleName.moduleName}`);
+    addModuleFile(anwsers.device, moduleName.moduleName);
   })
   .catch((error) => {
     if (error.isTtyError) {
